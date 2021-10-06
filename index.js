@@ -10,10 +10,13 @@ const flash = require('connect-flash');
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true },),);
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static("public"));
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
+app.use("/assets", express.static(__dirname + "/assets"));
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true}).then(() => console.log("Connected!"),);
 

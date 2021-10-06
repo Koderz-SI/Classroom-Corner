@@ -78,5 +78,50 @@ router.get('/logout', (req, res) => {
 router.get('/profile', checkAuth, (req, res) => {
     res.render('profile', { name: req.user.name, verified: req.user.isVerified })
 });
+router.get('/admin/dashboard', checkAuth, (req, res) => {
+    res.render('admin_dash');
+});
+router.get('admin/students', checkAuth, (res, req) =>{
+    if (!req.user.isAdmin) {
+        return res.redirect("/");
+    }
+    var students;
+    user.find({designation:"student"}, (err, data) => {
+    if (err) {
+        console.log(err);
+    }
+    if (data) {
+        students = data;
+    }
+    res.render("students_db", { data: students });
+    });
+});
+router.get('admin/faculty', checkAuth, (res, req) =>{
+    if (!req.user.isAdmin) {
+        return res.redirect("/");
+    }
+    var faculty;
+    user.find({designation:"faculty"}, (err, data) => {
+    if (err) {
+        console.log(err);
+    }
+    if (data) {
+        faculty = data;
+    }
+    res.render("faculty_db", { data: faculty });
+    });
+});
+router.post("/admin/delete-student", (req, res) => {
+    const id = req.body.id;
+    user.findOneAndRemove({ _id: id }, (err, doc) => {
+      res.redirect("/admin/students");
+    });
+});
+router.post("/admin/delete-faculty", (req, res) => {
+    const id = req.body.id;
+    user.findOneAndRemove({ _id: id }, (err, doc) => {
+      res.redirect("/admin/faculty");
+    });
+});
 // router.use(require('./userRoutes'));
 module.exports = router;
