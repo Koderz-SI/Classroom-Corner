@@ -20,18 +20,17 @@
             <div class="form__group">
                
                 <input type="name" placeholder="Name" class="form__input" />
-                <input type="password" placeholder="Phone no." class="form__input" />
+                <input type="text" pattern="[1-9]{1}[0-9]{9}" placeholder="Phone no." class="form__input" />
                 <input type="email" placeholder="Email" class="form__input" />
-                Choose
-                <select name="cars" id="cars" class="form__input">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="mercedes">Mercedes</option>
-                    <option value="audi">Audi</option>
-                  </select>
+               
                 
-                  
-
+                    <select name="cars" id="cars" class="form__input">
+                        <option disabled="disabled" selected="selected" style="color: grey;">Choose designation</option>
+                        <option value="student">Student</option>
+                        <option value="teacher">Teacher</option>
+                     
+                      </select>
+                
                 <input type="password" placeholder="Password" class="form__input" />
                 <input type="password" placeholder="Confirm Password" class="form__input" />
 
