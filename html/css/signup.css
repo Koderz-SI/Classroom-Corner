@@ -37,7 +37,7 @@ body {
 
 .form {
      border-color: black;
-    margin-top: 40px;
+    margin-top: 30px;
     border-radius: 6px;
     overflow: hidden;
     opacity: 0;
@@ -61,9 +61,7 @@ body {
     -webkit-appearance: none;
     border: 0;
     outline: 0;
-    transition: 0.3s;
-   
-    
+    transition: 0.3s;  
 }
 
 .btn {
