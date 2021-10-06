@@ -29,13 +29,14 @@ body {
 }
 
 .user__title {
-    font-size: 14px;
+    font-size: 24px;
     margin-bottom: -10px;
     font-weight: 500;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .form {
+     border-color: black;
     margin-top: 40px;
     border-radius: 6px;
     overflow: hidden;
@@ -52,6 +53,8 @@ body {
 
 .form__input {
     display: block;
+    font-size: 20px;
+
     width: 100%;
     padding: 20px;
     font-family:"Roboto";
@@ -59,21 +62,23 @@ body {
     border: 0;
     outline: 0;
     transition: 0.3s;
+   
     
 }
 
 .btn {
     display: block;
     width: 100%;
+    font-size: 20px;
     padding: 20px;
     font-family: "Roboto";
     -webkit-appearance: none;
     outline: 0;
     border: 0;
     color: white;
-    background: #ABA194;
+    background: #413a31;
     transition: 0.3s;
-    
+    cursor: pointer;
 }
 
 @keyframes NO {
