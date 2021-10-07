@@ -96,7 +96,7 @@ router.get('/admin/students', checkAuth, (req, res) =>{
     res.render("students_db", { data: students });
     });
 });
-router.get('/admin/faculty', checkAuth, (req, res) =>{
+   router.get('/admin/faculty', checkAuth, (req, res) =>{
     if (!req.user.isAdmin) {
         return res.redirect("/");
     }
@@ -123,5 +123,13 @@ router.post("/admin/delete-faculty", (req, res) => {
       res.redirect("/admin/faculty");
     });
 });
+
+router.get('/broadcast', (req, res) => {
+    res.render("broadcast");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
+
 // router.use(require('./userRoutes'));
 module.exports = router;
