@@ -131,5 +131,12 @@ router.get('/login', (req, res) => {
     res.render("login");
 });
 
+router.get('/form_faculty', (req, res) => {
+    res.render("faculty_form");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
+
 // router.use(require('./userRoutes'));
 module.exports = router;
