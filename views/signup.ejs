@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,43 +8,39 @@
     <link href="assets/css/login.css" rel="stylesheet">
     <title>Document</title>
 </head>
+
 <body>
     <div class="user">
         <header class="user__header">
             <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/3219/logo.svg" alt="" />
             <h1 class="user__title">Sign Up</h1>
         </header>
-        
+        <% if(typeof err !='undefined' ){ %>
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong> Error </strong>
+                <%= err %>
+            </div>
+            <% } %>
         <form class="form" method="POST" action="/signup">
-         
-            
             <div class="form__group">
-               
                 <input type="name" name="name" placeholder="Name" class="form__input" />
-                <input type="text" name="phone" pattern="[1-9]{1}[0-9]{9}" placeholder="Phone no." class="form__input" />
+                <input type="text" name="phone" pattern="[1-9]{1}[0-9]{9}" placeholder="Phone no."
+                    class="form__input" />
                 <input type="email" name="email" placeholder="Email" class="form__input" />
-               
-                
-                    <select name="designation" id="cars" class="form__input">
-                        <option disabled="disabled" selected="selected" style="color: grey;">Choose designation</option>
-                        <option value="student">Student</option>
-                        <option value="teacher">Teacher</option>
-                     
-                      </select>
-                
+                <select name="designation" id="cars" class="form__input">
+                    <option disabled="disabled" selected="selected" style="color: grey;">Choose designation</option>
+                    <option value="student">Student</option>
+                    <option value="teacher">Teacher</option>
+                </select>
                 <input type="password" name="password" placeholder="Password" class="form__input" />
                 <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form__input" />
-
-              
             </div>
-            
-           
-            
             <button class="btn" type="submit">Submit</button>
-
-            <h2 style="text-align: center; padding-top: 15px;">Already Registered? <a href="login.html" style="color: rgb(50, 51, 0); text-decoration: none;">Login Here</a></h2>
+            <h2 style="text-align: center; padding-top: 15px;">Already Registered? <a href="login.html"
+                    style="color: rgb(50, 51, 0); text-decoration: none;">Login Here</a></h2>
         </form>
     </div>
-    
+
 </body>
+
 </html>

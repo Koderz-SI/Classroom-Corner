@@ -81,7 +81,7 @@ router.get('/profile', checkAuth, (req, res) => {
 router.get('/admin/dashboard', checkAuth, (req, res) => {
     res.render('admin_dash');
 });
-router.get('admin/students', checkAuth, (res, req) =>{
+router.get('/admin/students', checkAuth, (req, res) =>{
     if (!req.user.isAdmin) {
         return res.redirect("/");
     }
@@ -96,7 +96,7 @@ router.get('admin/students', checkAuth, (res, req) =>{
     res.render("students_db", { data: students });
     });
 });
-router.get('admin/faculty', checkAuth, (res, req) =>{
+router.get('/admin/faculty', checkAuth, (req, res) =>{
     if (!req.user.isAdmin) {
         return res.redirect("/");
     }
