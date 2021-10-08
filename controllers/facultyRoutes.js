@@ -97,14 +97,14 @@ router.get('/faculty/quiz-dashboard/:topic', checkAuth, (req, res) => {
 
 router.post("/faculty/create-ques", checkAuth, async (req, res) => {
     const name = req.user.name;
-    const idcheck = req.body.idcheck;
+    const topic = req.body.topic;
     const ques = req.body.ques;
     const opt1 = req.body.opt1;
     const opt2 = req.body.opt2;
-	const opt3 = req.body.opt3;
-	const opt4 = req.body.opt4;
-	const correct = req.body.correct;
-	const explanation = req.body.explanation;
+    const opt3 = req.body.opt3;
+    const opt4 = req.body.opt4;
+    const correct = req.body.correct;
+    const explanation = req.body.explanation;
 
     const Questionnew = new question({
         name,
