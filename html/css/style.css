@@ -531,7 +531,7 @@ p {
 .white-color h6,
 .white-color p,
 .white-color li {
-  color: #fff !important;
+  color: #ed5f5e !important;
 }
 .black-color,
 .black-color h1,
@@ -836,7 +836,7 @@ blockquote {
   font-weight: 600;
   padding: 0 17px;
   line-height: 70px;
-  color: #fff;
+  color: #ed5f5e;
   font-size: 13px;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
