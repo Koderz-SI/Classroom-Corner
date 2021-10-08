@@ -185,6 +185,20 @@ router.get('/login', (req, res) => {
     res.render("login");
 });
 
+router.get('/answerDash', (req, res) => {
+    res.render("answerDashboard");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
+
+router.get('/questionDash', (req, res) => {
+    res.render("questionDashboard");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
+
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
 module.exports = router;
