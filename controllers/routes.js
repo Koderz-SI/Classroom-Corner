@@ -79,7 +79,7 @@ router.get('/profile', checkAuth, (req, res) => {
     res.render('profile', { name: req.user.name, verified: req.user.isVerified })
 });
 router.get('/admin/dashboard', checkAuth, (req, res) => {
-    res.render('admin_dash');
+    res.render("admin_dash");
 });
 router.get('/admin/students', checkAuth, (req, res) =>{
     if (!req.user.isAdmin) {
@@ -133,6 +133,13 @@ router.get('/login', (req, res) => {
 
 router.get('/form_faculty', (req, res) => {
     res.render("faculty_form");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
+
+router.get('/verify', (req, res) => {
+    res.render("verificationofFac");
 });
 router.get('/login', (req, res) => {
     res.render("login");
