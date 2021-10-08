@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const user = require('../models/user');
+const faculty = require('../models/faculty');
 const bcryptjs = require('bcryptjs');
 const passport = require('passport');
 require('./passportLocal')(passport);
@@ -62,13 +63,30 @@ router.post('/signup', (req, res) => {
         })
     }
 });
-router.post('/login', (req, res, next) => {
-    passport.authenticate('local', {
-        failureRedirect: '/login',
-        successRedirect: '/profile',
-        failureFlash: true,
-    })(req, res, next);
-});
+// router.post('/login', (req, res, next) => {
+//     passport.authenticate('local', {
+//         failureRedirect: '/login',
+//         successRedirect: '/profile',
+//         failureFlash: true,
+//     })(req, res, next);
+// });
+router.post(
+    "/login",
+    passport.authenticate("local", {
+      failureRedirect: "/login",
+    }),
+    (req, res, next) => {
+      if (req.user.isAdmin === true) {
+        res.redirect("/admin/dashboard");
+      }
+      if (req.user.designation == "student") {
+        res.redirect("/student");
+      }
+      else if (req.user.designation == "faculty") {
+        res.redirect("/faculty");
+      } 
+    }
+  );
 router.get('/logout', (req, res) => {
     req.logout();
     req.session.destroy((err) => {
@@ -124,19 +142,37 @@ router.post("/admin/delete-faculty", (req, res) => {
     });
 });
 
-router.get('/broadcast', (req, res) => {
-    res.render("broadcast");
+router.post("/admin/delete-faculty", (req, res) => {
+    const id = req.body.id;
+    user.findOneAndRemove({ _id: id }, (err, doc) => {
+      res.redirect("/admin/faculty");
+    });
 });
-router.get('/login', (req, res) => {
-    res.render("login");
-});
-
-router.get('/form_faculty', (req, res) => {
-    res.render("faculty_form");
-});
-router.get('/login', (req, res) => {
-    res.render("login");
-});
-
-// router.use(require('./userRoutes'));
+router.get("/admin/faculty-check", checkAuth, (req, res) => {
+    if (!req.user.isAdmin) {
+      return res.redirect("/");
+    }
+    var faculties;
+    faculty.find({ isPending: true }, (err, data) => {
+      if (err) {
+        console.log(err);
+      }
+      if (data) {
+        faculties = data;
+      }
+      res.render("faculty-checklist", { data: faculties });
+    });
+  });
+router.post("admin/faculty-checked", checkAuth, async (req, res) => {
+    if (!req.user.isAdmin) {
+        return res.redirect("/");
+      }
+    const email = req.body.email;
+    const updated = await alumni.updateOne(
+        { email: email },
+        { $set: { isPending: false } }
+      );
+    res.redirect("/faculty");
+})
+router.use(require('./facultyRoutes'));
 module.exports = router;
