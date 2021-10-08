@@ -126,29 +126,31 @@
 
                     <!-- === Accordion === -->
                     <div id="accordion" class="panel-group wow fadeIn" data-wow-delay="0.6s">
-                        
+                        <% for(var i=0; i < data.length; i++) { %>
                         <!-- === Accordion item 1 === -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Faculty Name</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><%= data[i].name %></a>
                                 </h4>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                <p><b>Work Experience</b>:             </p><br/>
-                                <p><b>LinkedIn</b>:           </p><br/>
-                                <p><b>Qualification</b>:        </p><br/>
-                                <p><b>Awards and Honors</b>:         </p><br/>
-                                <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">Accept</button>                
-                            
+                                <p><b>Work Experience</b>: <%= data[i].exp %></p><br/>
+                                <p><b>LinkedIn</b>: <%= data[i].linkedin %></p><br/>
+                                <p><b>Qualification</b>: <%= data[i].qualification %></p><br/>
+                                <p><b>Awards and Honors</b>: <%= data[i].awards %></p><br/>
+                                <form action="/admin/faculty-checked" method="POST">
+                                    <input type="hidden" name="email" value="<%= data[i].email %>">
+                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit" id="send" data-lang="en">Accept</button>                
+                                </form>
                                 </div>
                                 
                             </div>
                         </div>
-                        
+                        <% } %>
                         <!-- === Accordion item 2 === -->
-                        <div class="panel panel-default">
+                        <!-- <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Faculty Name1</a>
@@ -162,10 +164,10 @@
                                     <p><b>Awards and Honors</b>:         </p><br/>
                                     <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">Accept</button>                
                              </div>
-                        </div>
+                        </div> -->
                         
                         <!-- === Accordion item 3 === -->
-                        <div class="panel panel-default">
+                        <!-- <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
                                     <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Faculty Name2</a>
@@ -179,7 +181,7 @@
                                     <p><b>Awards and Honors</b>:         </p><br/>
                                     <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">Accept</button>                
                               </div>
-                        </div>
+                        </div> -->
 
                     </div> <!-- /.panel-group -->
                                       

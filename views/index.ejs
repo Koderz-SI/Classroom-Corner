@@ -75,7 +75,7 @@
                             <!-- Logo -->
                             <div class="logo-container">
                                 <div class="logo-wrap local-scroll">
-                                  <a href="#home">
+                                  <a href="/">
                                     <img class="logo" src="assets/img/logo_light.png" alt="logo" data-rjs="2">
                                   </a>
                                 </div>
@@ -86,12 +86,16 @@
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a data-scroll href="#home">Home</a></li>
+                                    <li><a data-scroll href="/">Home</a></li>
                                     <!-- <li><a data-scroll href="#services">Services</a></li>
                                     <li><a data-scroll href="#about">About</a></li>
                                     <li><a data-scroll href="#team">Team</a></li> -->
-                                    <li><a href="/login">Login</a></li>
-                                    <li><a href="/signup">SignUp</a></li>
+                                    <% if(logged){ %>
+                                        <li><a href="/logout">Logout</a></li>
+                                    <% }else{ %>
+                                        <li><a href="/login">Login</a></li>
+                                        <li><a href="/signup">SignUp</a></li>
+                                    <% } %>
                                     <!-- <li><a data-scroll href="#contact">Contact</a></li> -->
                                 </ul>
 

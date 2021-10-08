@@ -1,0 +1,9 @@
+<% if (status == "Verified") { %>
+    <h1><%= data.name %> </h1>
+<% } else if (status == "UnVerified"){ %>
+    <h1><%= status %> </h1>
+<% }else{ %>
+    <h1>Please fill the form first</h1>
+    <a href="/faculty/form">form</a>
+<% } %>
+ 
