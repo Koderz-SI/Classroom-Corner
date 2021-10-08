@@ -178,6 +178,12 @@ router.get('/login', (req, res) => {
     res.render("login");
 });
 
+router.get('/createQuiz', (req, res) => {
+    res.render("listofQuiz");
+});
+router.get('/login', (req, res) => {
+    res.render("login");
+});
 
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
