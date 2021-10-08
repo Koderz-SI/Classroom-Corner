@@ -142,13 +142,6 @@ router.post("/admin/delete-faculty", (req, res) => {
     });
 });
 
-router.post("/admin/delete-faculty", (req, res) => {
-    const id = req.body.id;
-    user.findOneAndRemove({ _id: id }, (err, doc) => {
-      res.redirect("/admin/faculty");
-    });
-});
-
 // router.use(require('./userRoutes'));
 router.get("/admin/faculty-check", checkAuth, (req, res) => {
     if (!req.user.isAdmin) {
@@ -193,4 +186,5 @@ router.get('/login', (req, res) => {
 });
 
 router.use(require('./facultyRoutes'));
+router.use(require('./quizRoutes'));
 module.exports = router;
