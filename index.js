@@ -17,6 +17,9 @@ app.use(express.static("public"));
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use("/assets", express.static(__dirname + "/assets"));
+app.use("/admin/assets", express.static(__dirname + "/assets"));
+app.use("/faculty/assets", express.static(__dirname + "/assets"));
+// app.use("/mentor/assets", express.static(__dirname + "/assets"));
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true}).then(() => console.log("Connected!"),);
 

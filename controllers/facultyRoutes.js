@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const faculty = require("../models/faculty");
 const user = require("../models/user");
+const broadcast = require("../models/broadcast");
 const quiz = require("../models/quiz");
 const question = require("../models/question");
 const dotenv = require("dotenv");
@@ -23,13 +24,29 @@ router.get('/faculty', checkAuth, async (req, res) => {
     let email = req.user.email;
     data = await faculty.findOne({ email: email });
     if(data != null){
-        res.render("faculty_details", {data: data, status: "Verified"});
+		if(data.isPending){
+			res.render("faculty", {data: data, status: "UnVerified"});
+		}else{
+			res.render("faculty", {data: data, status: "Verified"});
+		}
     } else {
-        res.render("faculty_details", { status: "Unfilled" });
+        res.render("faculty", { status: "Unfilled" });
     }  
 });
-router.post('/faculty/broadcast', checkAuth, (req, res) => {
-    res.render("broadcast");
+router.post('/faculty/broadcast', checkAuth, async (req, res) => {
+    const faculty = req.user.name;
+    const msg = req.body.msg;
+  
+    const Message = new broadcast({
+        faculty,
+        msg,
+    });
+    try {
+      const newMessage = await Message.save();
+      res.redirect("/faculty");
+    } catch (e) {
+      console.log(e);
+    }
 });
 router.get('/faculty/form', checkAuth, (req, res) => {
     res.render("faculty_form");
@@ -108,7 +125,7 @@ router.post("/faculty/create-ques", checkAuth, async (req, res) => {
 
     const Questionnew = new question({
         name,
-        subject,
+        topic,
         ques,
         opt1,
 		opt2,
