@@ -1,0 +1,21 @@
+#field {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid black;
+}
+
+#subb{
+    background-color: #ed5f5e; 
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 10px 2px;
+    cursor: pointer;
+}
