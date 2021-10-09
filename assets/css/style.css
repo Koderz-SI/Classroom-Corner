@@ -1,22 +1,29 @@
-/*------------------------------------------------------------------
-Template Name:  N. agency - Responisve Landing Page for Agency
-Version:        1.0
-Last update:    12/17/2017
-Author:         tabthemes
-URL:            http://www.tabthemes.com/
--------------------------------------------------------------------*/
-/*------------------------------------------------------------------
-
-01. General Styles
-02. Custom Button
-03. Typography
-04. Block Spacing
 
 
--------------------------------------------------------------------*/
-/*--------------------------------------------------
-    01. General Styles 
----------------------------------------------------*/
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  /* box-shadow: inset 0 0 5px grey; */
+  border-radius: 10px;
+  background-color: rgb(255, 255, 255);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #c73a3a;
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #3eada6;
+}
+
 html {
   overflow-y: scroll;
   -ms-overflow-style: scrollbar;
