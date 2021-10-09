@@ -183,6 +183,11 @@ router.get('/announcement', (req, res) => {
     res.render("announcement");
 });
 
+router.get('/result', (req, res) => {
+    res.render("testSubmit");
+});
+
+
 
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
