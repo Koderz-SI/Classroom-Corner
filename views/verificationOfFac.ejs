@@ -131,10 +131,10 @@
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><%= data[i].name %></a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>"><%= data[i].name %></a>
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
+                            <div id="collapse<%= i %>" class="panel-collapse collapse in">
                                 <div class="panel-body">
                                 <p><b>Work Experience</b>: <%= data[i].exp %></p><br/>
                                 <p><b>LinkedIn</b>: <%= data[i].linkedin %></p><br/>

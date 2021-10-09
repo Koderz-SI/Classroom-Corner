@@ -48,9 +48,6 @@ router.post('/faculty/broadcast', checkAuth, async (req, res) => {
       console.log(e);
     }
 });
-router.get('/faculty/form', checkAuth, (req, res) => {
-    res.render("faculty_form");
-});
 router.post("/faculty/form", checkAuth, async (req, res) => {
     const name = req.user.name;
     const email = req.user.email;
