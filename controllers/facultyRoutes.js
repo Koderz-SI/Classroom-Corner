@@ -75,27 +75,41 @@ router.post("/faculty/form", checkAuth, async (req, res) => {
 });
 // list of quizzes made
 router.get('/faculty/quiz', checkAuth, (req, res) => {
-    res.render("quiz"); 
+  	var quizzes;
+	const name = req.user.name;
+    quiz.find({name: name}, (err, data) => {
+    if (err) {
+        console.log(err);
+    }
+    if (data) {
+        quizzes = data;
+    }
+    res.render("listOfQuiz", { data: quizzes });
+    });
 });
 
 // Create a new quiz
 router.get('/faculty/create-quiz', checkAuth, (req, res) => {
-    res.render("create-quiz-form");
+    res.render("createquiz");
 });
 
 router.post("/faculty/create", checkAuth, async (req, res) => {
     const name = req.user.name;
     const subject = req.body.subject;
     const topic = req.body.topic;
-    const startdate = req.body.startdate;
-    const enddate = req.body.enddate;
+    const date = req.body.date;
+    const starttime = req.body.starttime;
+    const endtime = req.body.endtime;
+    const duration = req.body.duration;
   
     const Quiznew = new quiz({
         name,
         subject,
         topic,
-        startdate,
-        enddate,
+        date,
+        starttime,
+        endtime,
+        duration,
     });
     try {
       const newSave = await Quiznew.save();
@@ -106,23 +120,26 @@ router.post("/faculty/create", checkAuth, async (req, res) => {
 });
 // add question
 router.get('/faculty/quiz-dashboard/:topic', checkAuth, (req, res) => {
-    res.render("create-question-form", {topic: req.params.topic});
+    res.render("createques", {topic: req.params.topic});
 });
 
 router.post("/faculty/create-ques", checkAuth, async (req, res) => {
     const name = req.user.name;
-    const topic = req.body.topic;
+    const idcheck = req.body.topic;
     const ques = req.body.ques;
     const opt1 = req.body.opt1;
     const opt2 = req.body.opt2;
     const opt3 = req.body.opt3;
     const opt4 = req.body.opt4;
-    const correct = req.body.correct;
+	var ans = req.body.opt;
+	var correct = req.body[`${ans}`];
+
+	console.log(req.body);
     const explanation = req.body.explanation;
 
     const Questionnew = new question({
         name,
-        topic,
+        idcheck,
         ques,
         opt1,
 		opt2,
@@ -133,7 +150,7 @@ router.post("/faculty/create-ques", checkAuth, async (req, res) => {
     });
     try {
       const newSave = await Questionnew.save();
-      res.redirect("/quiz-dashboard");
+      res.redirect("/faculty/quiz-dashboard/"+idcheck);
     } catch (e) {
       console.log(e);
     }

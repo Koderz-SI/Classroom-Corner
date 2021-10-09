@@ -109,31 +109,35 @@
                     <div class="col-md col-sm p-bottom-30">
                         <div class="contact-form row">
     
-                            <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                            <form name="ajax-form" id="ajax-form" action="/faculty/create" method="post">
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>*Subject:</label>
-                                    <input name="name" id="name" type="text"  required>
+                                    <input name="subject" id="name" type="text"  required>
                                     <span class="error" id="err-name">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>*Topic:</label>
-                                    <input name="email" id="email" type="text" required>
+                                    <input name="topic" id="email" type="text" required>
                                     <span class="error" id="err-email">This field in required</span>
-                                </div>
-                                <div class="col-sm-12 contact-form-item wow zoomIn">
-                                    <label>*Duration:</label>
-                                    <input type="text" name="duration" id="duration" required>
                                 </div>
                                 <div class="col-sm-6 contact-form-item wow zoomIn">
                                     <label>*Date:</label><br>
                                     <input type="date" name="date" id="date" required>
                                 </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>*Duration:</label>
+                                    <input type="datetime" name="duration" id="duration" required>
+                                </div>
                                 <div class="col-sm-6 contact-form-item wow zoomIn">
-                                    <label>*Time:</label><br>
-                                    <input type="time" name="time" id="time" required>
+                                    <label>*Start Time:</label><br>
+                                    <input type="time" name="starttime" id="time" required>
+                                </div>
+                                <div class="col-sm-6 contact-form-item wow zoomIn">
+                                    <label>*End Time:</label><br>
+                                    <input type="time" name="endtime" id="time" required>
                                 </div>
                                 <div class="col-sm-12 contact-form-item">
-                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">Create</button>                
+                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit" id="send" data-lang="en">Create</button>                
                                 </div>
                                 <div class="clear"></div>   
                                 <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
