@@ -134,7 +134,6 @@ router.post("/faculty/create-ques", checkAuth, async (req, res) => {
 	var ans = req.body.opt;
 	var correct = req.body[`${ans}`];
 
-	console.log(req.body);
     const explanation = req.body.explanation;
 
     const Questionnew = new question({
