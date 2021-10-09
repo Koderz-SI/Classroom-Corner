@@ -152,31 +152,45 @@
                 <% } else if (status == "UnVerified"){ %>
                     <h2>Please wait while your form is verified!</h2>
                 <% }else{ %>
-                    <h1>Please fill the form first</h1>
-                    <div class="testbox">
-                        <form action="/faculty/form" method="POST">
-                            <h1>FORM</h1>
-                            <div class="item">
-                                <p>Qualification</p>
-                                <input type="text" name="qualification">
-                            </div>
-                            <div class="item">
-                                <p>Work Experience</p>
-                                <input type="text" name="exp">
-                            </div>
-                            <div class="item">
-                                <p>Awards and Honors</p>
-                                <input type="text" name="awards">
-                            </div>
-                            <div class="item">
-                                <p>LinkedIn</p>
-                                <input type="url" name="linkedin">
-                            </div>
-                            <div class="btn-block">
-                                <button type="submit">Submit</button>
-                            </div>
-                        </form>
-                    </div>
+                    <h3 style="text-align: center;">Please fill the form first</h3>
+                    <div class="col-md col-sm p-bottom-30">
+                        <div class="contact-form row">
+    
+                            <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                                
+
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>LinkedIn:</label>
+                                    <input name="name" id="name" type="text" required>
+                                    <span class="error" id="err-email">This field is required</span>
+                                </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>Qualification:</label>
+                                    <input name="text" id="name" type="text" required>
+                                    <span class="error" id="err-email">This field is required</span>
+                                </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>Work Experience:</label><br>
+                                    <textarea name="message" id="message" required></textarea>
+                                </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>Awards & Honors:</label><br>
+                                    <textarea name="message" id="message" required></textarea>
+                                </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en" type="submit">submit</button>                
+                                </div>
+                                <div class="clear"></div>   
+                                <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
+                                <div class="error text-align-center" id="err-timedout">The connection to the server timed out!</div>
+                                <div class="error" id="err-state"></div>
+                            </form> 
+                                        
+                            <div class="clearfix"></div>
+                            <div id="ajaxsuccess">Successfully sent!!</div>
+                            <div class="clear"></div>
+    
+                        </div> 
                 <% } %>
                 
             </div> <!-- /.row -->
