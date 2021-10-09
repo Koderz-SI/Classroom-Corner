@@ -178,6 +178,12 @@ router.get('/student/notifications', checkAuth, (req, res) => {
     res.render("notifications", { data: notifications });
     });
 })
+
+router.get('/announcement', (req, res) => {
+    res.render("announcement");
+});
+
+
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
 module.exports = router;
