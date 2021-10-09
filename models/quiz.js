@@ -13,13 +13,19 @@ const quizSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    startdate: {
+    date: {
         type: Date,
         default: Date.now,
     },
-    enddate: {
-        type: Date,
-    }
+    starttime: {
+        type: String,
+    },
+    endtime: {
+        type: String,
+    },
+    duration: {
+        type: String,
+    },
 });
 
 module.exports = mongoose.model('quiz', quizSchema);

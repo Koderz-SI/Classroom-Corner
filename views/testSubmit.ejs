@@ -37,8 +37,6 @@
  
  <!-- Custom CSS -->
  <link href="assets/css/style.css" rel="stylesheet">
-
-
     
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -77,11 +75,7 @@
                             <div class="logo-container">
                                 <div class="logo-wrap local-scroll">
                                   <a href="/">
-
-                                    
-
-                                    <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">   </a>
-
+                                    <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">      </a>
                                 </div>
                             </div>
                         </div> <!-- end navbar-header -->
@@ -89,13 +83,13 @@
                         <div class="col-md-8 col-xs-12 nav-wrap">
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
-                              <ul class="nav navbar-nav navbar-right">
-                                <li><a href="/admin/dashboard">Dashboard</a></li> 
-                                <li><a href="/admin/students">Student DB</a></li> 
-                                <li><a href="/admin/faculty">Faculty DB</a></li> 
-                                <li><a href="/admin/faculty-check">Verification</a></li> 
-                                <li><a href="/logout">Logout</a></li>           
-                            </ul>
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="/announcement">Announcement</a></li> 
+                                    <li><a href="">Test Section</a></li> 
+                                   
+                                    <li><a href="/logout">Logout</a></li>           
+                                </ul>
+
                             </div>
                         </div> <!-- /.col -->
 
@@ -109,65 +103,45 @@
 
     <!-- Section Title Blog -->
     <div class="section-title-bg text-center m-bottom-40">
-        <h2 class="wow fadeInDown no-margin" data-wow-duration="1s" data-wow-delay="0.6s"><strong>Faculty Database</strong></h2>
-        
+        <h2 class="wow fadeInDown no-margin" data-wow-duration="1s" data-wow-delay="0.6s"><strong>Check your Answers</strong></h2>
+        <div class="divider-center-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
+        <p class="section-subtitle wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.6s"></p>
     </div>
-  
+
+    
     <!--BLog single section-->
     <section class="blog-index">
 
         <!--Container-->
         <div class="container clearfix">
         <div class="row">
+            <div>
+                <h3>Total Questions:     </h3><h3 style="color: rgb(107, 172, 11);">No. of Correct Answer:     </h3><h3  style="color: rgb(201, 7, 7);">No. of Wrong Answer:   </h3>
+            </div>
+            <br/>
 
+          <ul>
+              <li><h4> Q1. Who r u?</h4></li>
+              <li><h4> Explanation: No Explanation</h4></li><br/>
 
-          <table class="table table-striped" style="margin: 30px; width: 950px; margin-left: 9em;">
-            <thead>
-              <tr>
-                <th scope="col">Sr. NO.</th>
-                <th scope="col">Faculty Name</th>
-                <th scope="col">Delete</th>
-              </tr>
-            </thead>
-            <tbody>
-              <% for(var i=0; i < data.length; i++) { %>
-                <tr>
-                  <th scope="row">
-                    <%= i+1 %>
-                  </th>
-                  <td>
-                    <%= data[i].name %>
-                  </td>
-                  <form action="/admin/delete-faculty" method="POST">
-                    <input type="hidden" name="id" value="<%= data[i].id %>">
-                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
-                  </form>
-                </tr>
-                <% } %>
-            </tbody>
-          </table>
+              <li><h4> Q2. zipp zapp?</h4></li>
+              <li><h4> Explanation: No Explanation</h4></li><br/>
+          </ul>
+          
+          
         
-                
-            <div class="col-xs-12 sidebar">
-
-               
-                                   
-                   
-
-                </div> <!-- /.inner-row -->       
-            
             </div> <!-- /.col -->
     
         </div> <!-- /.row -->
         </div> <!-- /.container -->
 
-    </section >
+    </section><!--End blog single section-->
 
 
     <!-- Start Footer -->
-    <footer class="site-footer" style="margin-top: 110px;">
+    <footer class="site-footer" style="margin-top: 140px;">
         <div class="container">
-          <small class="copyright pull-left" style="align-items: center;">MADE WITH ❤️ BY KODERZ</small>
+            <small class="copyright pull-left" style="align-items: center;">MADE WITH ❤️ BY KODERZ</small>
             <!-- /social-icon -->
         </div>
         <!-- /container -->

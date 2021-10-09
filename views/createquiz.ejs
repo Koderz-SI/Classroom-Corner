@@ -11,7 +11,11 @@
     <meta name="keywords" content="">
     <meta name="author" content="tabthemes">
     
+<<<<<<< HEAD
     <!-- Favicons -->
+=======
+ <!-- Favicons -->
+>>>>>>> 7b321d560486decd7403582a14b23f50dead210d
  <link rel="shortcut icon" href="assets/img/CC1.png">
  <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
  <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
@@ -61,8 +65,12 @@
                                 <div class="logo-container">
                                     <div class="logo-wrap local-scroll">
                                       <a href="#home">
+<<<<<<< HEAD
                                         <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">
                                       </a>
+=======
+                                        <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">  </a>
+>>>>>>> 7b321d560486decd7403582a14b23f50dead210d
                                     </div>
                                 </div>
                             </div> <!-- end navbar-header -->
@@ -109,31 +117,35 @@
                     <div class="col-md col-sm p-bottom-30">
                         <div class="contact-form row">
     
-                            <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                            <form name="ajax-form" id="ajax-form" action="/faculty/create" method="post">
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>*Subject:</label>
-                                    <input name="name" id="name" type="text"  required>
+                                    <input name="subject" id="name" type="text"  required>
                                     <span class="error" id="err-name">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>*Topic:</label>
-                                    <input name="email" id="email" type="text" required>
+                                    <input name="topic" id="email" type="text" required>
                                     <span class="error" id="err-email">This field in required</span>
-                                </div>
-                                <div class="col-sm-12 contact-form-item wow zoomIn">
-                                    <label>*Duration:</label>
-                                    <input type="text" name="duration" id="duration" required>
                                 </div>
                                 <div class="col-sm-6 contact-form-item wow zoomIn">
                                     <label>*Date:</label><br>
                                     <input type="date" name="date" id="date" required>
                                 </div>
+                                <div class="col-sm-12 contact-form-item wow zoomIn">
+                                    <label>*Duration:</label>
+                                    <input type="datetime" name="duration" id="duration" required>
+                                </div>
                                 <div class="col-sm-6 contact-form-item wow zoomIn">
-                                    <label>*Time:</label><br>
-                                    <input type="time" name="time" id="time" required>
+                                    <label>*Start Time:</label><br>
+                                    <input type="time" name="starttime" id="time" required>
+                                </div>
+                                <div class="col-sm-6 contact-form-item wow zoomIn">
+                                    <label>*End Time:</label><br>
+                                    <input type="time" name="endtime" id="time" required>
                                 </div>
                                 <div class="col-sm-12 contact-form-item">
-                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">Create</button>                
+                                    <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit" id="send" data-lang="en">Create</button>                
                                 </div>
                                 <div class="clear"></div>   
                                 <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>
@@ -154,15 +166,7 @@
 
         <footer class="site-footer">
             <div class="container">
-                <small class="copyright pull-left">Copyrights © 2019 All Rights Reserved By <a href="http://www.tabthemes.com/">tabthemes</a>.</small>
-                <div class="social-icon pull-right">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                    <a href="#"><i class="fa fa-pinterest"></i></a>
-                    <a href="#"><i class="fa fa-google"></i></a>
-                    <a href="#"><i class="fa fa-rss"></i></a>
-                    <a href="#"><i class="fa fa-globe"></i></a>
-                </div>
+                <small class="copyright pull-left" style="align-items: center;">MADE WITH ❤️ BY KODERZ</small>
                 <!-- /social-icon -->
             </div>
             <!-- /container -->

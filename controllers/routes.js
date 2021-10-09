@@ -166,18 +166,6 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
     
 });
 
-router.get('/createQuiz', (req, res) => {
-    res.render("listofQuiz");
-});
-
-router.get('/fillFormToCreateQuiz', (req, res) => {
-    res.render("createquiz");
-});
-
-router.get('/createquestion', (req, res) => {
-    res.render("createques");
-});
-
 router.get('/student/notifications', checkAuth, (req, res) => {
     var notifications;
     broadcast.find({$all}, (err, data) => {
@@ -190,6 +178,17 @@ router.get('/student/notifications', checkAuth, (req, res) => {
     res.render("notifications", { data: notifications });
     });
 })
+
+router.get('/announcement', (req, res) => {
+    res.render("announcement");
+});
+
+router.get('/result', (req, res) => {
+    res.render("testSubmit");
+});
+
+
+
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
 module.exports = router;
