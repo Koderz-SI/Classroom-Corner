@@ -86,13 +86,13 @@
                         <div class="col-md-8 col-xs-12 nav-wrap">
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/admin/students">Student DB</a></li> 
-                                    <li><a href="/admin/faculty">Faculty DB</a></li> 
-                                    <li><a href="/admin/faculty-check">Verification</a></li> 
-                                    <li><a href="/logout">Logout</a></li>           
-                                </ul>
-
+                              <ul class="nav navbar-nav navbar-right">
+                                <li><a href="/admin/dashboard">Dashboard</a></li> 
+                                <li><a href="/admin/students">Student DB</a></li> 
+                                <li><a href="/admin/faculty">Faculty DB</a></li> 
+                                <li><a href="/admin/faculty-check">Verification</a></li> 
+                                <li><a href="/logout">Logout</a></li>           
+                            </ul>
                             </div>
                         </div> <!-- /.col -->
 
@@ -117,34 +117,35 @@
         <div class="container clearfix">
         <div class="row">
 
-
+          <table class="table table-striped" style="margin: 30px; width: 950px; margin-left: 9em;">
+            <thead>
+              <tr>
+                <th scope="col">Sr. NO.</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Delete</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% for(var i=0; i < data.length; i++) { %>
+                <tr>
+                  <th scope="row">
+                    <%= i+1 %>
+                  </th>
+                  <td>
+                    <%= data[i].name %>
+                  </td>
+                  <form action="/admin/delete-faculty" method="POST">
+                    <input type="hidden" name="id" value="<%= data[i].id %>">
+                    <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                  </form>
+                </tr>
+                <% } %>
+            </tbody>
+          </table>
+        
               
                       
-                  <table class="table table-striped" style="text-align: center;">
-                    <thead>
-                      <tr>
-                        <th scope="col">Sr. NO.</th>
-                        <th scope="col">Student Name</th>
-                        <th scope="col">Delete</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <% for(var i=0; i < data.length; i++) { %>
-                        <tr>
-                          <th scope="row">
-                            <%= i+1 %>
-                          </th>
-                          <td>
-                            <%= data[i].name %>
-                          </td>
-                          <form action="/admin/delete-student" method="POST">
-                            <input type="hidden" name="id" value="<%= data[i].id %>">
-                            <td><button type="submit" class="btn btn-danger">Delete</button></td>
-                          </form>
-                        </tr>
-                        <% } %>
-                    </tbody>
-                  </table>
+                 
                 
             <div class="col-xs-12 sidebar">
 
