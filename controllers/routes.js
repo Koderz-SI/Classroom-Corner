@@ -170,6 +170,14 @@ router.get('/createQuiz', (req, res) => {
     res.render("listofQuiz");
 });
 
+router.get('/fillFormToCreateQuiz', (req, res) => {
+    res.render("createquiz");
+});
+
+router.get('/createquestion', (req, res) => {
+    res.render("createques");
+});
+
 router.get('/student/notifications', checkAuth, (req, res) => {
     var notifications;
     broadcast.find({$all}, (err, data) => {
