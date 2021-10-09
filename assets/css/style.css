@@ -531,7 +531,7 @@ p {
 .white-color h6,
 .white-color p,
 .white-color li {
-  color: #fff !important;
+  color: #ed5f5e !important;
 }
 .black-color,
 .black-color h1,
@@ -836,7 +836,7 @@ blockquote {
   font-weight: 600;
   padding: 0 17px;
   line-height: 70px;
-  color: #fff;
+  color: #ed5f5e;
   font-size: 13px;
   text-transform: uppercase;
   -webkit-transition: all 0.3s ease-in-out;
@@ -1911,7 +1911,7 @@ blockquote {
 .contact-form #ajaxsuccess {
   background: #f5f5f5;
   padding: 10px 15px;
-  color: #28a745;
+  color: #ff0000;
   display: none;
   width: 100%;
   margin-left: auto;
@@ -2215,7 +2215,7 @@ blockquote {
     **. Responsive {should come last}
 ---------------------------------------------------*/
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (max-width: 991px), only screen and (min--moz-device-pixel-ratio: 2) and (max-width: 991px), only screen and (-o-min-device-pixel-ratio: 2/1) and (max-width: 991px), only screen and (min-device-pixel-ratio: 2) and (max-width: 991px), only screen and (min-resolution: 192dpi) and (max-width: 991px), only screen and (min-resolution: 2dppx) and (max-width: 991px) {
-  -webkit-font-smoothing: subpixel-antialiased;
+  -webkit-font-smoothing : subpixel-antialiased;
   .btn-main {
     font-size: 8px;
   }
