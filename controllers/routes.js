@@ -4,7 +4,7 @@ const user = require('../models/user');
 const faculty = require('../models/faculty');
 const bcryptjs = require('bcryptjs');
 const passport = require('passport');
-const broadcast = require('../models/broadcast');
+const contact = require('../models/contact');
 require('./passportLocal')(passport);
 
 function checkAuth(req, res, next){
@@ -87,6 +87,23 @@ router.get('/logout', (req, res) => {
         res.redirect('/')
     })
 });
+router.post('/contact', async(req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const message = req.body.message;
+  
+    const Contactnew = new contact({
+        name,
+        email,
+        message,
+    });
+    try {
+      const newSave = await Contactnew.save();
+      res.redirect("/");
+    } catch (e) {
+      console.log(e);
+    }
+});
 router.get('/admin/dashboard', checkAuth, (req, res) => {
     if (!req.user.isAdmin) {
         return res.redirect("/");
@@ -165,9 +182,6 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
     }).catch((err) => console.log(err));
     
 });
-
-
-
 
 router.get('/test', (req, res) => {
     res.render("stuTest");
