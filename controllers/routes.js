@@ -74,7 +74,7 @@ router.post(
         return res.redirect("/admin/dashboard");
       }
       if (req.user.designation == "student") {
-        return res.redirect("/announcement");
+        return res.redirect("/student/announcements");
       }
       else if (req.user.designation == "faculty") {
         return res.redirect("/faculty");
@@ -166,43 +166,16 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
     
 });
 
-router.get('/student/notifications', checkAuth, (req, res) => {
-    var notifications;
-    broadcast.find({$all}, (err, data) => {
-    if (err) {
-        console.log(err);
-    }
-    if (data) {
-        notifications = data;
-    }
-    res.render("notifications", { data: notifications });
-    });
-})
-
-router.get('/announcement', (req, res) => {
-    res.render("announcement");
-});
-
-router.get('/result', (req, res) => {
-    res.render("testSubmit");
-});
-
-router.get('/shopform', (req, res) => {
-    res.render("shopform");
-}); 
-  
-router.get('/test', (req, res) => {
-    res.render("stuTest");
-});
-
-router.get('/shop', (req, res) => {
-    res.render("products_shop");
-});
 
 router.get('/claim', (req, res) => {
     res.render("claim");
 });
 
+router.get('/test', (req, res) => {
+    res.render("stuTest");
+});
+
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
+router.use(require('./studentRoutes'));
 module.exports = router;
