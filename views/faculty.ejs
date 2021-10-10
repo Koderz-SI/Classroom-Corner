@@ -116,14 +116,17 @@
                 <% if (status == "Verified") { %>
                     <div class="col-xs-12">
                         <!--Respond-->
-                        <div class="respond m-top-60">
+                        <div class="respond m-top-40">
                             <h4 class="m-bottom-20">Announcement</h4>
     
                             <!--Reply form-->
                             <div class="replyForm">
+                                
                                 <form method="post" action="/faculty/broadcast">
                                     <textarea name="msg" placeholder="Message *" id="message" cols="45"
                                         rows="10"></textarea>
+                                        <input type="checkbox" name="urgent" value="urgent" style="width:20px;height:15px;">
+                                <label for="urgent" style="font-size: 15px;"> Urgent</label><br>
                                     <button class="btn btn-main m-bottom-40" type="submit">Post Announcement</button>
     
                                 </form>
@@ -157,21 +160,21 @@
 
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>LinkedIn:</label>
-                                    <input name="name" id="name" type="url" required>
+                                    <input name="linkedin" id="name" type="url" required>
                                     <span class="error" id="err-email">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Qualification:</label>
-                                    <input name="text" id="name" type="text" required>
+                                    <input name="qualification" id="name" type="text" required>
                                     <span class="error" id="err-email">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Work Experience:</label><br>
-                                    <textarea name="message" id="message" required></textarea>
+                                    <textarea name="exp" id="message" required></textarea>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Awards & Honors:</label><br>
-                                    <textarea name="message" id="message" required></textarea>
+                                    <textarea name="awards" id="message" required></textarea>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en" type="submit">submit</button>                
