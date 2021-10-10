@@ -1928,7 +1928,7 @@ blockquote {
   margin-bottom: 20px;
 }
 .contact-form-item input[type="text"],
-.contact-form-item input[type="password"],
+.contact-form-item input[type="url"],
 .contact-form-item input[type="email"],
 .contact-form-item input[type="tel"],
 .contact-form-item textarea {
