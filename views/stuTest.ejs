@@ -97,12 +97,15 @@
                                 <h4>Total marks: 25</h4>
                             </div> -->
                     </div>
+                    <b>You have:</b>
+		<span id="min" ></span> <b>Minutes</b>
+		<span id="remain"></span> <b>Seconds</b>
                     <div class="question bg-white p-3 border-bottom">
                         <h3>
                             <%= topic %>
                         </h3><br>
                         <div class="d-flex flex-row align-items-center question-title">
-                            <form class="w3-container" method="post" action="/student/quiz/<%= topic %>/done">
+                            <form class="w3-container" name="quiz" id="quiz" method="post" action="/student/quiz/<%= topic %>/done">
                                 <% for( let i = 0; i < data.length; i++ ) { %>
                                 
                                 <h5><%= data[i].ques %> </h5>
@@ -120,7 +123,7 @@
                                 <label for="opt4"><%= data[i].opt4 %></label><br><br>
                                 <br>
                                 <% } %>
-                                <button id="subb" type="submit" name="submit">Submit</button>
+                                <button type="submit" name="submit">Submit</button>
                             </form>
                         </div>
                     </div>
@@ -129,13 +132,6 @@
         </div>
     </div>
 
-    <footer class="site-footer" style="margin-top: 140px;">
-        <div class="container">
-            <small class="copyright pull-left" style="align-items: center;">MADE WITH ❤️ BY KODERZ</small>
-            <!-- /social-icon -->
-        </div>
-        <!-- /container -->
-    </footer>
 
 </body>
 
@@ -147,9 +143,9 @@
             <!-- /container -->
         </footer>
 
-        <script>
+        <!-- <script>
             window.onload = function () {
-               var minute = 29;
+            var minute = 2-1;
                var sec = 60;
                setInterval(function () {
                   document.getElementById("timer").innerHTML =
@@ -164,11 +160,42 @@
                     if (minute < 0) {
                   
                      document.getElementById("timer").innerHTML = "EXPIRED";
+                     alert("Time Up!");
                     } 
                   }
                }, 1000);
             };
-         </script>
-        
+         </script> -->
+        <script type="text/javascript">
+            window.onload=counter;
+            function counter()
+            {
+            minutes=00
+            seconds =10;
+            countDown();
+            }
+            </script>
+            <script type="text/javascript">
+            function countDown(){
+            document.getElementById("min").innerHTML= minutes;
+            document.getElementById("remain").innerHTML= seconds;
+            setTimeout("countDown()",1000);
+                if(minutes == 0 && seconds == 0)
+                    { 
+                       
+                        //document.form.submit();
+                        document.getElementById("quiz").submit();
+                    }
+                else	
+                    {
+                    seconds--;	
+                    if(seconds ==0 && minutes > 0)
+                    {
+                        minutes--;
+                        seconds=60;
+                    }
+                    }
+            }
+            </script>
     </body>
 </html>

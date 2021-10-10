@@ -124,61 +124,27 @@
 
                     <!-- === Accordion === -->
                     <div id="accordion" class="panel-group wow fadeIn" data-wow-delay="0.6s">
+                        <% for( let i = 0; i < data.length; i++ ) { %>
                         
                         <!-- === Accordion item 1 === -->
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Student Name</a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %>"><%= data[i].student %> </a>
                                 </h4>
                             </div>
-                            <div id="collapseOne" class="panel-collapse collapse in">
+                            <div id="collapse<%= i %>" class="panel-collapse collapse in">
                                 <div class="panel-body">
-                                <p><b>Total Question</b>:             </p><br/>
-                                <p><b>Correct Answers</b>:           </p><br/>
-                                <p><b>Wrong Answers</b>:        </p><br/>
+                                <p><b>Correct Answers</b>:           <%= data[i].correctans %></p><br/>
+                                <p><b>Wrong Answers</b>:        <%= data[i].wrongans %></p><br/>
                                 
                                </div>
                                 
                             </div>
                         </div>
                         
-                        <!-- === Accordion item 2 === -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Student1</a>
-                                </h4>
-                            </div>
-                            <div id="collapseTwo" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                  
-                                        <p><b>Total Question</b>:             </p><br/>
-                                        <p><b>Correct Answers</b>:           </p><br/>
-                                        <p><b>Wrong Answers</b>:        </p><br/>
-                                        
-                                </div>
-                                </div>
-                        </div>
+                        <% } %>
                         
-                        <!-- === Accordion item 3 === -->
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                <h4 class="panel-title">
-                                    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Student2</a>
-                                </h4>
-                            </div>
-                            <div id="collapseThree" class="panel-collapse collapse">
-                                <div class="panel-body">
-                                    <p><b>Total Question</b>:             </p><br/>
-                                    <p><b>Correct Answers</b>:           </p><br/>
-                                    <p><b>Wrong Answers</b>:        </p><br/>
-                                    
-                                </div>
-                        </div>
-
-                    </div> <!-- /.panel-group -->
-                                      
                 </div> <!-- /.col -->
 
             </div> <!-- /.row -->

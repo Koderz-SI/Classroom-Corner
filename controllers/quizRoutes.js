@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const faculty = require("../models/faculty");
-const user = require("../models/user");
 const quiz = require("../models/quiz");
 const result = require("../models/result");
 const question = require("../models/question");
@@ -23,6 +21,7 @@ function checkAuth(req, res, next) {
 
 router.get("/student/quizzes", checkAuth, (req, res) => {
 	var quizzes;
+    var results = [];
 	quiz.find((err, data) => {
 		if (err) {
 			console.log(err);
@@ -30,13 +29,25 @@ router.get("/student/quizzes", checkAuth, (req, res) => {
 		if (data) {
 			quizzes = data;
 		}
-		res.render("studentQuiz", { data: quizzes });
+        result.find({student: req.user.name}, (err, data) => {
+            if (err) {
+                console.log(err);
+            }
+            if (data) {
+                for(let i=0; i<data.length; i++){
+                    results.push(data[i].topic)
+                }
+            }
+            res.render("studentQuiz", { data: quizzes, results: results });
+        })
+		
 	});
 });
 
 router.get("/student/quiz/:topic", checkAuth, (req, res) => {
 	const topic = req.params.topic;
 	var questions;
+    var duration;
 	question.find({ idcheck: topic }, (err, data) => {
 		if (err) {
 			console.log(err);
@@ -44,7 +55,16 @@ router.get("/student/quiz/:topic", checkAuth, (req, res) => {
 		if (data) {
 			questions = data;
 		}
-		res.render("stuTest", { data: questions, topic: topic });
+        quiz.findOne({topic: topic}, (err, data) => {
+            if (err) {
+                console.log(err);
+            }
+            if (data) {
+                duration = data.duration;
+            }
+            res.render("stuTest", { data: questions, topic: topic, duration: duration });
+        })
+		
 	});
 });
 let questions;

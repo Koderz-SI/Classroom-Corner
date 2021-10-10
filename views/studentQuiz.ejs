@@ -126,7 +126,8 @@
 
                     <!-- === Accordion item 1 === -->
                     <% for( let i=0; i < data.length; i++ ) { %>
-
+                        <% if (!results.includes(data[i].topic)) { %>
+                         
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
@@ -153,6 +154,8 @@
 
                             </div>
                         </div>
+                        
+                        <% } %>
                         <% } %>
 
                             <!-- === Accordion item 2 === -->
