@@ -23,7 +23,7 @@ function checkAuth(req, res, next) {
 
 router.get("/student/quizzes", checkAuth, (req, res) => {
 	var quizzes;
-	quiz.find({$all}, (err, data) => {
+	quiz.find((err, data) => {
 		if (err) {
 			console.log(err);
 		}

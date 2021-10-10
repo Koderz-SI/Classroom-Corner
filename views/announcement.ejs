@@ -86,7 +86,7 @@
                                 <ul class="nav navbar-nav navbar-right">
                                     <li><a href="/announcement">Announcement</a></li>
                                     <li><a href="/test">Test </a></li>
-                                    <li><a href="/shop">Shop</a></li>
+                                    <li><a href="/student/shop">Shop</a></li>
                                     
                                     <li><a href="/logout">Logout</a></li>   
                                 </ul>
@@ -116,10 +116,13 @@
 
         <!--Container-->
         <div class="container clearfix">
-        <div class="row">
+        <div class="row"></div>
           <ul>
-              <li><h4> &#9668; Students Keep ur mouth shuttttttt!!!!!!!!</h4></li>
-              <li><h4> &#9668; Zip zappp zoooo</h4></li>
+              <% for( let i = data.length-1; i >= 0; i-- ) { %>
+                <li><h4> &#9668; <%= data[i].msg %> </h4>
+                    <p><%= data[i].faculty %> </p>
+                </li>
+              <% } %>
           </ul>
           
           
