@@ -187,6 +187,10 @@ router.get('/result', (req, res) => {
     res.render("testSubmit");
 });
 
+router.get('/shopform', (req, res) => {
+    res.render("shopform");
+}); 
+  
 router.get('/test', (req, res) => {
     res.render("stuTest");
 });

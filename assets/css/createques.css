@@ -19,3 +19,8 @@
     margin: 10px 2px;
     cursor: pointer;
 }
+
+.mcq{
+    display: flexbox;
+    justify-content: flex-end;
+}
