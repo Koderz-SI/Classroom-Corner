@@ -187,10 +187,10 @@ router.get('/result', (req, res) => {
     res.render("testSubmit");
 });
 
-<<<<<<< HEAD
 router.get('/shopform', (req, res) => {
     res.render("shopform");
-=======
+}); 
+  
 router.get('/test', (req, res) => {
     res.render("stuTest");
 });
@@ -201,7 +201,6 @@ router.get('/shop', (req, res) => {
 
 router.get('/claim', (req, res) => {
     res.render("claim");
->>>>>>> 6531257b1eb7ea70154ee790073117b8affe2bfd
 });
 
 router.use(require('./facultyRoutes'));
