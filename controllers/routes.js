@@ -187,7 +187,13 @@ router.get('/result', (req, res) => {
     res.render("testSubmit");
 });
 
+router.get('/test', (req, res) => {
+    res.render("stuTest");
+});
 
+router.get('/shop', (req, res) => {
+    res.render("products_shop");
+});
 
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
