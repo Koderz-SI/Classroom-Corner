@@ -167,6 +167,12 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
 });
 
 
+
+
+router.get('/test', (req, res) => {
+    res.render("stuTest");
+});
+
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
 router.use(require('./studentRoutes'));

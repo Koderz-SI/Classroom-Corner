@@ -139,4 +139,36 @@
 
 </body>
 
+        <footer class="site-footer" style="margin-top: 140px;">
+            <div class="container">
+                <small class="copyright pull-left" style="align-items: center;">MADE WITH ❤️ BY KODERZ</small>
+                <!-- /social-icon -->
+            </div>
+            <!-- /container -->
+        </footer>
+
+        <script>
+            window.onload = function () {
+               var minute = 29;
+               var sec = 60;
+               setInterval(function () {
+                  document.getElementById("timer").innerHTML =
+                     minute + " : " + sec;
+                  sec--;
+                  if (sec == 00) {
+                     minute--;
+                     sec = 60;
+                     if (minute == 0) {
+                        minute = 30;
+                     }
+                    if (minute < 0) {
+                  
+                     document.getElementById("timer").innerHTML = "EXPIRED";
+                    } 
+                  }
+               }, 1000);
+            };
+         </script>
+        
+    </body>
 </html>
