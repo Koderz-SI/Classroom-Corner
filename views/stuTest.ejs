@@ -73,7 +73,7 @@
                                         <li><a href="/announcement">Announcement</a></li>
                                         <li><a href="/test">Test </a></li>
                                         <li><a href="/shop">Shop</a></li>
-                                        
+                                        <li><a href="/claim">Claim</a></li>
                                         <li><a href="/logout">Logout</a></li>   
                                     </ul>
     
@@ -92,12 +92,19 @@
                     <div class="border">
                         <div class="question bg-white p-3 border-bottom">
                             <div class="mcq">
-                                <h4>Total marks: 25</h4>
+                               
+                                <h3 style="text-align: right; color: red;"> Time Limit <span id="timer">30:00<span> minutes!</h3>
+
                             </div>
+                           
+                                <!-- custom js -->
+                               
+
                         </div>
                         <div class="question bg-white p-3 border-bottom">
-                            <h3>Data Structure & Algorithm</h3>
-                            <h4>Topic: DSA</h4><br>
+                            <h3 style="text-align: center;">Data Structure & Algorithm</h3>
+                            <h4 style="text-align: center;">Topic: DSA</h4><br/>
+                            
                             <div class="d-flex flex-row align-items-center question-title">
                                 <form class="w3-container">
                                     <h5>Q1. Best time complexity of bubble sort is </h5>
@@ -156,8 +163,9 @@
                                         <input type="radio" id="opts4" name="o" value="OPTION4"> 
                                         <label for="opts4">If-else</label><br><br>
                                     <br>
-                                    <button id="subb" type="submit" name="submit">Submit</button>
-                                </form>
+                                    <div class="btn-block">
+                                        <button type="submit">Submit</button>
+                                    </div>   </form>
                             </div> 
                         </div>       
                     </div>
@@ -172,6 +180,29 @@
             </div>
             <!-- /container -->
         </footer>
+
+        <script>
+            window.onload = function () {
+               var minute = 29;
+               var sec = 60;
+               setInterval(function () {
+                  document.getElementById("timer").innerHTML =
+                     minute + " : " + sec;
+                  sec--;
+                  if (sec == 00) {
+                     minute--;
+                     sec = 60;
+                     if (minute == 0) {
+                        minute = 30;
+                     }
+                    if (minute < 0) {
+                  
+                     document.getElementById("timer").innerHTML = "EXPIRED";
+                    } 
+                  }
+               }, 1000);
+            };
+         </script>
         
     </body>
 </html>
