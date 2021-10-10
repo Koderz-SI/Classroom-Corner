@@ -74,7 +74,7 @@ router.post(
         return res.redirect("/admin/dashboard");
       }
       if (req.user.designation == "student") {
-        return res.redirect("/student");
+        return res.redirect("/announcement");
       }
       else if (req.user.designation == "faculty") {
         return res.redirect("/faculty");
@@ -193,6 +193,10 @@ router.get('/test', (req, res) => {
 
 router.get('/shop', (req, res) => {
     res.render("products_shop");
+});
+
+router.get('/claim', (req, res) => {
+    res.render("claim");
 });
 
 router.use(require('./facultyRoutes'));
