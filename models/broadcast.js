@@ -9,6 +9,10 @@ const broadcastSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    urgent: {
+        type: Boolean,
+        default: false,
+    },
 });
 
 module.exports = mongoose.model('broadcast', broadcastSchema);

@@ -36,10 +36,12 @@ router.get('/faculty', checkAuth, async (req, res) => {
 router.post('/faculty/broadcast', checkAuth, async (req, res) => {
     const faculty = req.user.name;
     const msg = req.body.msg;
+    const urgent = req.body.urgent;
   
     const Message = new broadcast({
         faculty,
         msg,
+        urgent,
     });
     try {
       const newMessage = await Message.save();
