@@ -167,9 +167,7 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
 });
 
 
-router.get('/claim', (req, res) => {
-    res.render("claim");
-});
+
 
 router.get('/test', (req, res) => {
     res.render("stuTest");
