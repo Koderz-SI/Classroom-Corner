@@ -27,17 +27,17 @@
             <% } %>
         <form class="form" method="POST" action="/signup">
             <div class="form__group">
-                <input type="name" name="name" placeholder="Name" class="form__input" />
+                <input type="name" name="name" placeholder="Name" class="form__input" required/>
                 <input type="text" name="phone" pattern="[1-9]{1}[0-9]{9}" placeholder="Phone no."
-                    class="form__input" />
-                <input type="email" name="email" placeholder="Email" class="form__input" />
-                <select name="designation" id="cars" class="form__input">
+                    class="form__input" required/>
+                <input type="email" name="email" placeholder="Email" class="form__input" required/>
+                <select name="designation" id="cars" class="form__input" required>
                     <option disabled="disabled" selected="selected" style="color: grey;">Choose designation</option>
                     <option value="student">Student</option>
                     <option value="faculty">Faculty</option>
                 </select>
-                <input type="password" name="password" placeholder="Password" class="form__input" />
-                <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form__input" />
+                <input type="password" name="password" placeholder="Password" class="form__input" required/>
+                <input type="password" name="confirmpassword" placeholder="Confirm Password" class="form__input" required/>
             </div>
             <button class="btn" type="submit">Submit</button>
             <h2 style="text-align: center; padding-top: 15px;">Already Registered? <a href="/login"
