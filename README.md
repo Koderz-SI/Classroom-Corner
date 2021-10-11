@@ -36,4 +36,7 @@ DataBase: MongoDB
   
 <p style="font-size: 18px;  margin-left: 1em;">Team Leader: SANSKRITI KUSHIK<br>
 Team Members: IRIT KUSHWAHA & MUGDHA KORADE</p>
+<br/>
   
+  <p style="text-align:center">Made with ❤ by Koderz </p>
+
