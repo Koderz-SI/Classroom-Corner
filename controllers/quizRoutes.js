@@ -68,7 +68,7 @@ router.get("/student/quiz/:topic", checkAuth, (req, res) => {
 	});
 });
 let questions;
-router.post("/student/quiz/:topic/done", checkAuth, (req, res) => {
+router.post("/student/quiz/done/:topic", checkAuth, (req, res) => {
 	const student = req.user.name;
 	const email = req.user.email;
 	const topic = req.params.topic;
