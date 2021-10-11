@@ -100,14 +100,13 @@
                             </div> -->
                     </div>
                     <b>You have:</b>
-		<span id="min" ></span> <b>Minutes</b>
-		<span id="remain"></span> <b>Seconds</b>
+		<span id="timer" ></span> <b>Remaining</b>
                     <div class="question bg-white p-3 border-bottom">
                         <h3>
                             <%= topic %>
                         </h3><br>
                         <div class="d-flex flex-row align-items-center question-title">
-                            <form class="w3-container" name="quiz" id="quiz" method="post" action="/student/quiz/done/<%= topic %>">
+                            <form class="w3-container" name="myForm" id="myForm" method="post" action="/student/quiz/done/<%= topic %>">
                                 <% for( let i = 0; i < data.length; i++ ) { %>
                                 
                                 <h5><%= data[i].ques %> </h5>
@@ -125,7 +124,8 @@
                                 <label for="opt4"><%= data[i].opt4 %></label><br><br>
                                 <br>
                                 <% } %>
-                                <button type="submit" name="submit">Submit</button>
+                                <!-- <button type="submit" name="submit">Submit</button> -->
+                                <input type="submit" value="Submit">
                             </form>
                         </div>
                     </div>
@@ -147,7 +147,7 @@
 
         <!-- <script>
             window.onload = function () {
-            var minute = 2-1;
+            var minute = <%= duration %>;
                var sec = 60;
                setInterval(function () {
                   document.getElementById("timer").innerHTML =
@@ -167,38 +167,22 @@
                   }
                }, 1000);
             };
-         </script> -->
-        <script type="text/javascript">
-            window.onload=counter;
-            function counter()
-            {
-            minutes=00
-            seconds =10;
-            countDown();
-            }
-            </script>
+        </script> -->
             <script type="text/javascript">
-            function countDown(){
-            document.getElementById("min").innerHTML= minutes;
-            document.getElementById("remain").innerHTML= seconds;
-            setTimeout("countDown()",1000);
-                if(minutes == 0 && seconds == 0)
-                    { 
-                       
-                        //document.form.submit();
-                        document.getElementById("quiz").submit();
-                        // setTimeout('document.forms[0].submit();', 900000);
+                window.onload=function(){
+                    var auto = setTimeout(function(){ autoRefresh(); }, 100);
+            
+                    function submitform(){
+                      alert('Time Up!');
+                      document.forms["myForm"].submit();
                     }
-                else	
-                    {
-                    seconds--;	
-                    if(seconds ==0 && minutes > 0)
-                    {
-                        minutes--;
-                        seconds=60;
+                    function autoRefresh(){
+                       clearTimeout(auto);
+                       var duration = <%= duration %>;
+                       duration = duration*60000;
+                       auto = setTimeout(function(){ submitform(); autoRefresh(); }, duration);
                     }
-                    }
-            }
+                }
             </script>
-    </body>
+        </body>
 </html>
