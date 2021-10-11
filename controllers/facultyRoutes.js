@@ -135,7 +135,17 @@ router.post("/faculty/create", checkAuth, async (req, res) => {
 });
 // add question
 router.get('/faculty/quiz-dashboard/:topic', checkAuth, (req, res) => {
-    res.render("createques", { topic: req.params.topic });
+    var questions;
+    const name = req.user.name;
+    question.find({ $and: [{name: name}, {idcheck: req.params.topic}] }, (err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        if (data) {
+            questions = data;
+        }
+        res.render("createques", { data: questions, topic: req.params.topic });
+    });
 });
 
 router.post("/faculty/create-ques", checkAuth, async (req, res) => {
