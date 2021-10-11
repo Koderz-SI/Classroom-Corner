@@ -4,7 +4,7 @@ const user = require('../models/user');
 const faculty = require('../models/faculty');
 const bcryptjs = require('bcryptjs');
 const passport = require('passport');
-const broadcast = require('../models/broadcast');
+const contact = require('../models/contact');
 require('./passportLocal')(passport);
 
 function checkAuth(req, res, next){
@@ -74,7 +74,7 @@ router.post(
         return res.redirect("/admin/dashboard");
       }
       if (req.user.designation == "student") {
-        return res.redirect("/announcement");
+        return res.redirect("/student/announcements");
       }
       else if (req.user.designation == "faculty") {
         return res.redirect("/faculty");
@@ -86,6 +86,23 @@ router.get('/logout', (req, res) => {
     req.session.destroy((err) => {
         res.redirect('/')
     })
+});
+router.post('/contact', async(req, res) => {
+    const name = req.body.name;
+    const email = req.body.email;
+    const message = req.body.message;
+  
+    const Contactnew = new contact({
+        name,
+        email,
+        message,
+    });
+    try {
+      const newSave = await Contactnew.save();
+      res.redirect("/");
+    } catch (e) {
+      console.log(e);
+    }
 });
 router.get('/admin/dashboard', checkAuth, (req, res) => {
     if (!req.user.isAdmin) {
@@ -166,43 +183,11 @@ router.post("/admin/faculty-checked", checkAuth, (req, res) => {
     
 });
 
-router.get('/student/notifications', checkAuth, (req, res) => {
-    var notifications;
-    broadcast.find({$all}, (err, data) => {
-    if (err) {
-        console.log(err);
-    }
-    if (data) {
-        notifications = data;
-    }
-    res.render("notifications", { data: notifications });
-    });
-})
-
-router.get('/announcement', (req, res) => {
-    res.render("announcement");
-});
-
-router.get('/result', (req, res) => {
-    res.render("testSubmit");
-});
-
-router.get('/shopform', (req, res) => {
-    res.render("shopform");
-}); 
-  
 router.get('/test', (req, res) => {
     res.render("stuTest");
 });
 
-router.get('/shop', (req, res) => {
-    res.render("products_shop");
-});
-
-router.get('/claim', (req, res) => {
-    res.render("claim");
-});
-
 router.use(require('./facultyRoutes'));
 router.use(require('./quizRoutes'));
+router.use(require('./studentRoutes'));
 module.exports = router;

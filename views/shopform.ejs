@@ -67,13 +67,13 @@
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/announcement">Announcement</a></li>
+                                    <li><a href="/student/announcements">Announcement</a></li>
                                     <li><a href="/test">Test </a></li>
-                                    <li><a href="/shop">Shop</a></li>
+                                 
+                                    <li><a href="/student/shop">Shop</a></li>
                                     
                                     <li><a href="/logout">Logout</a></li>   
                                 </ul>
-
                             </div>
                         </div> <!-- /.col -->
 
@@ -102,24 +102,24 @@
                 <div class="col-md col-sm p-bottom-30">
                     <div class="contact-form row">
 
-                        <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                        <form action="/student/form" method="post">
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Seller's Name:</label><br>
-                                <input name="text"  type="text" required>
+                                <input name="seller"  type="text" required>
                                 <span class="error" >This field is required</span>
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Product Name:</label>
-                                <input name="text"  type="text" required>
+                                <input name="name"  type="text" required>
                                 <span class="error" >This field is required</span>
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Product Description:</label><br>
-                                <textarea name="message" id="message" required></textarea>
+                                <textarea name="desc" id="message" required></textarea>
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Amount:</label><br>
-                                <input type="text" id="amt" name="amt" required>
+                                <input type="text" id="amt" name="amount" required>
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Email:</label><br>
@@ -127,10 +127,10 @@
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Phone Number:</label><br>
-                                <input type="tel" id="tel" name="tel" placeholder="0123456789">
+                                <input type="tel" id="tel" name="phone" placeholder="0123456789">
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
-                                <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en">submit</button>                
+                                <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit">Submit</button>                
                             </div>
                             <div class="clear"></div>   
                             <div class="error text-align-center" id="err-form">There was a problem validating the form please check!</div>

@@ -5,15 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    
+
     <title>Classroom Corner</title>
-    
+
     <meta name="description" content="N.Agency - Responisve Landing Page for Agency">
     <meta name="keywords" content="">
     <meta name="author" content="tabthemes">
-    
- <!-- Favicons -->
- <link rel="shortcut icon" href="assets/img/CC1.png">
+
+    <!-- Favicons -->
+    <link rel="shortcut icon" href="assets/img/CC1.png">
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
@@ -77,9 +77,9 @@
                             <!-- Logo -->
                             <div class="logo-container">
                                 <div class="logo-wrap local-scroll">
-                                  <a href="#home">
-                                    <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">
-                                  </a>
+                                    <a href="#home">
+                                        <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">
+                                    </a>
                                 </div>
                             </div>
                         </div> <!-- end navbar-header -->
@@ -88,11 +88,12 @@
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <ul class="nav navbar-nav navbar-right">
-                                        <li><a href="/faculty">Broadcast</a></li>
-                                        <li><a href="/faculty/quiz">Quiz</a></li>
-                                        <li><a href="/logout">Logout</a></li>
-                                    </ul>
+                                    <li><a href="/student/announcements">Announcement</a></li>
+                                    <li><a href="/student/quizzes">Quiz</a></li>
+                                    <li><a href="/student/shop">Shop</a></li>
+                                    <li><a href="/student/bought">Claim</a></li>
+                                    
+                                    <li><a href="/logout">Logout</a></li>   
                                 </ul>
 
                             </div>
@@ -110,34 +111,12 @@
 
     <!-- Start Intro -->
 
-    <!-- Start Call to Action -->
-    <section class="light-bg p-top-60 p-bottom-60">
-        <div class="container">
-            <div class="row">
-
-                <div class="col-xs-12 c2a-content text-center">
-                    <!-- Text -->
-                    <h2 class="wow fadeInDown" data-wow-delay="0.3s">Create Quiz</h2>
-
-                    <a href="/faculty/create-quiz" class="btn btn-main btn-theme wow fadeInUp"
-                        data-wow-delay="0.5s">Start</a>
-                </div> <!-- /.col -->
-
-            </div> <!-- /.row -->
-        </div> <!-- /.container -->
-    </section>
-    <!-- End Call to Action -->
-
-
-
     <!-- Start Skill/Why Choose Us -->
     <section class="light-bg p-top-80 p-bottom-40">
         <div class="container">
             <div class="row">
-
-
                 <!-- Section Title Right -->
-                <div class="m-bottom-20">
+                <div class="m-bottom-30">
                     <h2 class="wow fadeInDown" data-wow-duration="1s" data-wow-delay="0.6s">Previous Quiz Questions</h2>
                     <div class="divider-small wow zoomIn" data-wow-duration="1s" data-wow-delay="0.6s"></div>
                 </div>
@@ -147,12 +126,14 @@
 
                     <!-- === Accordion item 1 === -->
                     <% for( let i=0; i < data.length; i++ ) { %>
-
+                        <% if (!results.includes(data[i].topic)) { %>
+                         
                         <div class="panel panel-default">
                             <div class="panel-heading">
                                 <h4 class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion"
-                                        href="#collapse<%= i %> "><%= data[i].topic %> </a>
+                                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= i %> ">
+                                        <%= data[i].topic %>
+                                    </a>
                                 </h4>
                             </div>
                             <div id="collapse<%= i %> " class="panel-collapse collapse in">
@@ -166,12 +147,15 @@
                                     <p><b>Duration</b>: <%= data[i].duration %>
                                     </p><br />
 
-                                    <a href="/faculty/quiz-dashboard/<%= data[i].topic %>"> <button
-                                            class="send_message btn btn-main btn-theme wow fadeInUp">Questions</button> </a>
+                                    <a href="/student/quiz/<%= data[i].topic %>"> <button
+                                            class="send_message btn btn-main btn-theme wow fadeInUp">Start</button>
+                                    </a>
                                 </div>
 
                             </div>
                         </div>
+                        
+                        <% } %>
                         <% } %>
 
                             <!-- === Accordion item 2 === -->

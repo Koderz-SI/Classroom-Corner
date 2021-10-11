@@ -1,7 +1,5 @@
 const express = require("express");
 const router = express.Router();
-const faculty = require("../models/faculty");
-const user = require("../models/user");
 const quiz = require("../models/quiz");
 const result = require("../models/result");
 const question = require("../models/question");
@@ -23,60 +21,83 @@ function checkAuth(req, res, next) {
 
 router.get("/student/quizzes", checkAuth, (req, res) => {
 	var quizzes;
-	quiz.find({$all}, (err, data) => {
+    var results = [];
+	quiz.find((err, data) => {
 		if (err) {
 			console.log(err);
 		}
 		if (data) {
 			quizzes = data;
 		}
-		res.render("quiz_list", { data: quizzes });
+        result.find({student: req.user.name}, (err, data) => {
+            if (err) {
+                console.log(err);
+            }
+            if (data) {
+                for(let i=0; i<data.length; i++){
+                    results.push(data[i].topic)
+                }
+            }
+            res.render("studentQuiz", { data: quizzes, results: results });
+        })
+		
 	});
 });
 
 router.get("/student/quiz/:topic", checkAuth, (req, res) => {
 	const topic = req.params.topic;
 	var questions;
-	question.find({"topic": topic}, (err, data) => {
+    var duration;
+	question.find({ idcheck: topic }, (err, data) => {
 		if (err) {
 			console.log(err);
 		}
 		if (data) {
 			questions = data;
 		}
-		res.render("quiz", { data: questions });
+        quiz.findOne({topic: topic}, (err, data) => {
+            if (err) {
+                console.log(err);
+            }
+            if (data) {
+                duration = data.duration;
+            }
+            res.render("stuTest", { data: questions, topic: topic, duration: duration });
+        })
+		
 	});
 });
-
+let questions;
 router.post("/student/quiz/:topic/done", checkAuth, (req, res) => {
 	const student = req.user.name;
 	const email = req.user.email;
 	const topic = req.params.topic;
-	var questions;
-	question.find({"topic": topic}, (err, data) => {
+
+	question.find({ idcheck: topic }, (err, data) => {
 		if (err) {
 			console.log(err);
 		}
 		if (data) {
 			questions = data;
 		}
-	});
-	var correctans = 0;
-	for(var q of questions){
-		if(q.correct == req.body.ques){
-			correctans += 1;
+		var correctans = 0;
+		for (let i = 0; i < questions.length; i++) {
+			if (questions[i].correct == req.body[`${i}`]) {
+				correctans += 1;
+			}
 		}
-	}
-	var wrongans = questions.length - marks;
-	const Resultnew = new result({
-        student,
-        topic,
-        correctans,
-        wrongans
-    });
-	Resultnew.save().then(() => {
-		res.render("quiz-end", {questions: questions, correctans: correctans, wrongans: wrongans});
-	})
-	.catch((err) => console.log(err));
+		var wrongans = questions.length - correctans;
+		const Resultnew = new result({
+			student,
+			topic,
+			correctans,
+			wrongans
+		});
+		Resultnew.save().then(() => {
+			res.render("testSubmit", { questions: questions, correctans: correctans, wrongans: wrongans });
+		})
+			.catch((err) => console.log(err));
+	});
+
 })
 module.exports = router;

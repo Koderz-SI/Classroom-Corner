@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Classroom Corner</title>
-<<<<<<< HEAD
 
     <meta name="description" content="N.Agency - Responisve Landing Page for Agency">
     <meta name="keywords" content="">
@@ -15,15 +14,6 @@
 
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/img/CC1.png">
-=======
-    
-    <meta name="description" content="N.Agency - Responisve Landing Page for Agency">
-    <meta name="keywords" content="">
-    <meta name="author" content="tabthemes">
-    
- <!-- Favicons -->
- <link rel="shortcut icon" href="assets/img/CC1.png">
->>>>>>> 7b321d560486decd7403582a14b23f50dead210d
     <link rel="apple-touch-icon" sizes="57x57" href="assets/img/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-72x72.png">
     <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-114x114.png">
@@ -88,12 +78,8 @@
                             <div class="logo-container">
                                 <div class="logo-wrap local-scroll">
                                     <a href="index.html">
-<<<<<<< HEAD
                                         <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">
                                     </a>
-=======
-                                        <img class="logo" src="assets/img/CC.png" alt="logo" data-rjs="2">    </a>
->>>>>>> 7b321d560486decd7403582a14b23f50dead210d
                                 </div>
                             </div>
                         </div> <!-- end navbar-header -->
@@ -102,7 +88,7 @@
                             <div class="collapse navbar-collapse" id="navbar-collapse">
 
                                 <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/faculty">Broadcast</a></li>
+                                    <li><a href="/faculty">Announcement</a></li>
                                     <li><a href="/faculty/quiz">Quiz</a></li>
                                     <li><a href="/logout">Logout</a></li>
                                 </ul>
@@ -130,14 +116,17 @@
                 <% if (status == "Verified") { %>
                     <div class="col-xs-12">
                         <!--Respond-->
-                        <div class="respond m-top-60">
+                        <div class="respond m-top-40">
                             <h4 class="m-bottom-20">Announcement</h4>
     
                             <!--Reply form-->
                             <div class="replyForm">
+                                
                                 <form method="post" action="/faculty/broadcast">
                                     <textarea name="msg" placeholder="Message *" id="message" cols="45"
                                         rows="10"></textarea>
+                                        <input type="checkbox" name="urgent" value="urgent" style="width:20px;height:15px;">
+                                <label for="urgent" style="font-size: 15px;"> Urgent</label><br>
                                     <button class="btn btn-main m-bottom-40" type="submit">Post Announcement</button>
     
                                 </form>
@@ -166,26 +155,26 @@
                     <div class="col-md col-sm p-bottom-30">
                         <div class="contact-form row">
     
-                            <form name="ajax-form" id="ajax-form" action="contact.php" method="post">
+                            <form name="ajax-form" id="ajax-form" action="/faculty/form" method="post">
                                 
 
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>LinkedIn:</label>
-                                    <input name="name" id="name" type="text" required>
+                                    <input name="linkedin" id="name" type="url" required>
                                     <span class="error" id="err-email">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Qualification:</label>
-                                    <input name="text" id="name" type="text" required>
+                                    <input name="qualification" id="name" type="text" required>
                                     <span class="error" id="err-email">This field is required</span>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Work Experience:</label><br>
-                                    <textarea name="message" id="message" required></textarea>
+                                    <textarea name="exp" id="message" required></textarea>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <label>Awards & Honors:</label><br>
-                                    <textarea name="message" id="message" required></textarea>
+                                    <textarea name="awards" id="message" required></textarea>
                                 </div>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
                                     <button class="send_message btn btn-main btn-theme wow fadeInUp" id="send" data-lang="en" type="submit">submit</button>                

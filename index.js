@@ -20,6 +20,9 @@ app.use("/assets", express.static(__dirname + "/assets"));
 app.use("/admin/assets", express.static(__dirname + "/assets"));
 app.use("/faculty/assets", express.static(__dirname + "/assets"));
 app.use("/faculty/quiz-dashboard/assets", express.static(__dirname + "/assets"));
+app.use("/faculty/quiz-dashboard/results/assets", express.static(__dirname + "/assets"));
+app.use("/student/assets", express.static(__dirname + "/assets"));
+app.use("/student/quiz/assets", express.static(__dirname + "/assets"));
 
 mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex:true}).then(() => console.log("Connected!"),);
 
