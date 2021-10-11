@@ -25,7 +25,7 @@ In the current covid situation, students, as well as teachers, struggle with dif
     
  
   <b>Tech Stack:</b><br />
-Frontend: HTML, CSS, BootStrap  <br>
+Frontend: HTML, CSS, JavaScript  <br>
 Backend : NodeJs   <br>
 DataBase: MongoDB
   
