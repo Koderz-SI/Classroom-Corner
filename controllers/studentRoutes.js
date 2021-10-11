@@ -3,6 +3,7 @@ const router = express.Router(); const product = require("../models/product");
 const broadcast = require("../models/broadcast");
 var nodemailer = require("nodemailer");
 const user = require("../models/user");
+const note = require("../models/note");
 const dotenv = require("dotenv");
 dotenv.config();
 
@@ -120,6 +121,18 @@ router.get("/student/bought", checkAuth, (req, res) => {
             products = data;
         }
         res.render("claim", { data: products });
+    });
+});
+router.get("/student/notes", checkAuth, (req, res) => {
+    var notes;
+    note.find((err, data) => {
+        if (err) {
+            console.log(err);
+        }
+        if (data) {
+            notes = data;
+        }
+        res.render("notes", { data: notes });
     });
 });
 module.exports = router;

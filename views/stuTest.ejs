@@ -68,19 +68,7 @@
                             </div>
                         </div> <!-- end navbar-header -->
 
-                        <div class="col-md-8 col-xs-12 nav-wrap">
-                            <div class="collapse navbar-collapse" id="navbar-collapse">
-
-                                <ul class="nav navbar-nav navbar-right">
-                                    <li><a href="/announcement">Announcement</a></li>
-                                    <li><a href="/test">Test </a></li>
-                                    <li><a href="/shop">Shop</a></li>
-
-                                    <li><a href="/logout">Logout</a></li>
-                                </ul>
-
-                            </div>
-                        </div> <!-- /.col -->
+                        
 
                     </div>
                 </div>
@@ -105,7 +93,7 @@
                             <%= topic %>
                         </h3><br>
                         <div class="d-flex flex-row align-items-center question-title">
-                            <form class="w3-container" name="quiz" id="quiz" method="post" action="/student/quiz/<%= topic %>/done">
+                            <form class="w3-container" name="quiz" id="quiz" method="post" action="/student/quiz/done/<%= topic %>">
                                 <% for( let i = 0; i < data.length; i++ ) { %>
                                 
                                 <h5><%= data[i].ques %> </h5>
@@ -184,7 +172,9 @@
                     { 
                        
                         //document.form.submit();
-                        document.getElementById("quiz").submit();
+                        // document.getElementById("quiz").submit();
+                        // setTimeout('document.forms[0].submit();', 900000);
+                        setTimeout('document.quiz.submit();');
                     }
                 else	
                     {
