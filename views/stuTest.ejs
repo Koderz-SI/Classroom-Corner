@@ -132,8 +132,9 @@
             <!-- /container -->
         </footer>
        <script>
+           var duration = <%= duration %>;
             document.getElementById('timer').innerHTML =
-        01 + ":" + 11;
+            duration + ":" + 00;
       startTimer();
       
       
@@ -162,7 +163,7 @@
        </script>
         <!-- <script>
             window.onload = function () {
-            var minute = <%= duration %>;
+            var minute = ;
                var sec = 60;
                setInterval(function () {
                   document.getElementById("timer").innerHTML =
