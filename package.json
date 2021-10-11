@@ -7,6 +7,10 @@
     "start": "nodemon index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "engines": {
+    "npm": "7.20.3",
+    "node": "v16.6.2"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Koderz-SI/Classroom-Corner.git"
