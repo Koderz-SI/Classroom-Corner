@@ -2,7 +2,7 @@
 
 DEPLOYED APP : <a href="">Classroom Corner </a>
 
-<img src=""/>
+ ![cc](https://user-images.githubusercontent.com/67689773/136733711-814e8fc6-38e0-44f7-8d76-7bb91bedab25.PNG)
 
 <b>Problem Statement<b/><br><br>
 In the current covid situation, students, as well as teachers, struggle with different modes of communication to connect with each other (For eg, google classroom, WhatsApp, etc). Thus, we strongly need a portal that handles all the online affairs of a classroom (Students & Faculty) collectively.
@@ -10,7 +10,8 @@ In the current covid situation, students, as well as teachers, struggle with dif
 <b>About Project:</b><br/>
   1. TESTS  <br/>
     We thrive to make the experience of examination easy for the students as well as the faculty. This feature provides MCQ based tests, auto submission, immediate result  after submitting and much more! <br/>
-  
+ 
+
   2. ADMIN VERIFICATION <br/>
     This portal aims towards building a healthy work environment. Hence all the content and changes in the content will be verified my the admin.
    
