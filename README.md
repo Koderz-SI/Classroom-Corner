@@ -1,6 +1,6 @@
 # Classroom-Corner
 
-DEPLOYED APP : <a href="">Classroom Corner </a>
+DEPLOYED APP : <a href="https://classroom-corner.herokuapp.com/">Classroom Corner </a>
 
  
 ![Capture](https://user-images.githubusercontent.com/67689773/136962333-b0241ee2-efca-446f-ad09-25c5f3d39f6c.PNG)
