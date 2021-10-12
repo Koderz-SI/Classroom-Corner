@@ -1,6 +1,6 @@
 # Classroom-Corner
 
-DEPLOYED APP : <a href="https://classroom-corner.herokuapp.com/">Classroom Corner </a>
+DEPLOYED APP : <a href="">Classroom Corner </a>
 
  ![cc](https://user-images.githubusercontent.com/67689773/136733711-814e8fc6-38e0-44f7-8d76-7bb91bedab25.PNG)
 
@@ -19,7 +19,7 @@ In the current covid situation, students, as well as teachers, struggle with dif
   Since we're connecting the staff and students via this portal, so you can expect this feature to be present. It will help the staff to put up new announcements, modify old announcements and mark announcements on the basis of urgency!
   
   4. STUDY MATERIAL <br/>
-   There's so much study material available online. But the moment you download it, it gets lost in your device. This feature will bring all those in one place, segregated in folders for easy access. The students and the faculty can use this to share their findings.</li>
+   There's so much study material available online. But the moment you download it, it gets lost in your device. This feature will bring all those in one place for easy access. The students and the faculty can use this to share their findings.</li>
     
    5. BUY AND SELL PRODUCTS <br/> 
     
