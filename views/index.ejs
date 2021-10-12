@@ -320,16 +320,16 @@
 
                     <form name="ajax-form" id="ajax-form" action="/contact" method="post">
                         <div class="col-sm-6 contact-form-item wow zoomIn">
-                            <input name="name" id="name" type="text"   placeholder="Your Name: *"/>
+                            <input name="name" id="name" type="text"   placeholder="Your Name: *"/ required>
                             <span class="error" id="err-name">please enter name</span>
                         </div>
                         <div class="col-sm-6 contact-form-item wow zoomIn">
-                            <input name="email" id="email" type="text"  placeholder="E-Mail: *"/>
+                            <input name="email" id="email" type="text"  placeholder="E-Mail: *"/ required>
                             <span class="error" id="err-email">please enter e-mail</span>
                             <span class="error" id="err-emailvld">e-mail is not a valid format</span>
                         </div>
                         <div class="col-sm-12 contact-form-item wow zoomIn">
-                            <textarea name="message" id="message" placeholder="Your Message"></textarea>
+                            <textarea name="message" id="message" placeholder="Your Message" required></textarea>
                         </div>
                         <div class="col-sm-12 contact-form-item">
                             <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit">Submit</button>                

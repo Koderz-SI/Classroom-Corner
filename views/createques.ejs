@@ -109,36 +109,36 @@
 								<p>
                                     <div class="col-sm-12 contact-form-item wow zoomIn">
                                         <label>Question: </label><br>
-									<input id="field" name="ques" type="text" placeholder="The question goes here..">
+									<input id="field" name="ques" type="text" placeholder="The question goes here.." required>
                                 </div>
 								</p>
                                 <div class="col-sm-12 contact-form-item wow zoomIn">
 								<label for="opt1">Option 1:</label><br><input name="opt1" type="text"
-									placeholder="Option 1"></div>
+									placeholder="Option 1" required></div>
 
                                     <div class="col-sm-12 contact-form-item wow zoomIn">
 								<label for="opt2">Option 2:</label><br><input name="opt2" type="text"
-									placeholder="Option 2"></div>
+									placeholder="Option 2" required></div>
 
                                     <div class="col-sm-12 contact-form-item wow zoomIn">
 								<label for="opt3">Option 3: </label><br><input name="opt3" type="text"
-									placeholder="Option 3"></div>
+									placeholder="Option 3" required></div>
 
                                     <div class="col-sm-12 contact-form-item wow zoomIn">
 								<label for="opt4">Option 4: </label><br><input name="opt4" type="text"
-									placeholder="Option 4"></div>
+									placeholder="Option 4" required></div>
 								<br>
 								<p>Correct ans:</p>
-								  <input type="radio" name="opt" value="opt1">
+								  <input type="radio" name="opt" value="opt1" required>
 								  <label for="opt1">Option 1</label><br>
-								  <input type="radio" name="opt" value="opt2">
+								  <input type="radio" name="opt" value="opt2" required>
 								  <label for="opt2">Option 2</label><br>
-								  <input type="radio" name="opt" value="opt3">
+								  <input type="radio" name="opt" value="opt3" required>
 								  <label for="opt3">Option 3</label><br>
-								  <input type="radio" name="opt" value="opt4">
+								  <input type="radio" name="opt" value="opt4" required>
 								  <label for="opt4">Option 4</label>
 								<br>
-								<textarea name="explanation" cols="30" rows="5" placeholder="Explanation"></textarea>
+								<textarea name="explanation" cols="30" rows="5" placeholder="Explanation" required></textarea>
 								<input type="hidden" name="topic" value="<%= topic %>">
 								<br/>
 								<button id="subb" type="submit" name="submit">Create</button>

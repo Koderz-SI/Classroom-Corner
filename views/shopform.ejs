@@ -71,8 +71,7 @@
                                     <li><a href="/student/quizzes">Quiz</a></li>
                                     <li><a href="/student/notes">Notes</a></li>
                                     <li><a href="/student/shop">Shop</a></li>
-                                    <li><a href="/student/bought">Bought Products</a></li>
-
+                                    <li><a href="/student/bought">Purchased Products</a></li>
                                     <li><a href="/logout">Logout</a></li>
                                 </ul>
 
@@ -129,7 +128,7 @@
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <label>Phone Number:</label><br>
-                                <input type="tel" id="tel" name="phone" placeholder="0123456789">
+                                <input type="tel" id="tel" name="phone" placeholder="0123456789" pattern="[1-9]{1}[0-9]{9}" required>
                             </div>
                             <div class="col-sm-12 contact-form-item wow zoomIn">
                                 <button class="send_message btn btn-main btn-theme wow fadeInUp" type="submit">Submit</button>                
